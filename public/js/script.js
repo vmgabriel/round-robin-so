@@ -462,6 +462,12 @@ function prepararCiclo() {
                 procesoEnEjecucion.tiempoComienzo = tiempoGlobalEjecucion;
                 cuantumProcesoEjecucion = 1;
             }
+            if (cuantum == cuantumProcesoEjecucion && procesoEnEjecucion.rafaga != 0) {
+                modificarProcesoEjecucion();
+                procesoEnEjecucion = todasListas.fifoProceso();
+                procesoEnEjecucion.tiempoComienzo = tiempoGlobalEjecucion;
+                cuantumProcesoEjecucion = 1;
+            }
         }
         if (procesoEnEjecucion.rafaga == 0) {
             procesoEnEjecucion.tiempoFinal = tiempoGlobalEjecucion;
